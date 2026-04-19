@@ -244,6 +244,10 @@
         <label>Link Envato <span class="required">*</span></label>
         <input type="url" id="link1" placeholder="https://themeforest.net/item/..." required />
       </div>
+      <div class="form-group">
+        <label>Link Google Drive <span class="optional-tag">(opsional)</span></label>
+        <input type="url" id="drive1" placeholder="https://drive.google.com/..." />
+      </div>
     </div>
 
     <!-- Design 2 -->
@@ -270,6 +274,10 @@
       <div class="form-group">
         <label>Link Envato</label>
         <input type="url" id="link2" placeholder="https://themeforest.net/item/..." />
+      </div>
+      <div class="form-group">
+        <label>Link Google Drive <span class="optional-tag">(opsional)</span></label>
+        <input type="url" id="drive2" placeholder="https://drive.google.com/..." />
       </div>
     </div>
 
@@ -298,6 +306,10 @@
         <label>Link Envato</label>
         <input type="url" id="link3" placeholder="https://themeforest.net/item/..." />
       </div>
+      <div class="form-group">
+        <label>Link Google Drive <span class="optional-tag">(opsional)</span></label>
+        <input type="url" id="drive3" placeholder="https://drive.google.com/..." />
+      </div>
     </div>
 
     <div class="form-group">
@@ -324,9 +336,9 @@
     const catatan = document.getElementById('catatan').value.trim();
 
     const designs = [
-      { jenis: document.getElementById('jenis1').value, nama: document.getElementById('namaDesign1').value.trim(), link: document.getElementById('link1').value.trim() },
-      { jenis: document.getElementById('jenis2').value, nama: document.getElementById('namaDesign2').value.trim(), link: document.getElementById('link2').value.trim() },
-      { jenis: document.getElementById('jenis3').value, nama: document.getElementById('namaDesign3').value.trim(), link: document.getElementById('link3').value.trim() },
+      { jenis: document.getElementById('jenis1').value, nama: document.getElementById('namaDesign1').value.trim(), link: document.getElementById('link1').value.trim(), drive: document.getElementById('drive1').value.trim() },
+      { jenis: document.getElementById('jenis2').value, nama: document.getElementById('namaDesign2').value.trim(), link: document.getElementById('link2').value.trim(), drive: document.getElementById('drive2').value.trim() },
+      { jenis: document.getElementById('jenis3').value, nama: document.getElementById('namaDesign3').value.trim(), link: document.getElementById('link3').value.trim(), drive: document.getElementById('drive3').value.trim() },
     ].filter(d => d.nama && d.link);
 
     const now = new Date().toLocaleString('id-ID', {
@@ -339,7 +351,7 @@
 `${icons[i]} *Design ${i + 1}*
    📁 ${d.jenis || 'Lainnya'}
    📝 ${d.nama}
-   🔗 ${d.link}`
+   🔗 ${d.link}${d.drive ? `\n   📂 ${d.drive}` : ''}`
     ).join('\n\n');
 
     const pesan =
